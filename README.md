@@ -52,10 +52,10 @@
 │       └── utils/
 │
 ├── docs/
-├── subjects/
 │   ├── api-specification.md
 │   ├── data-model.md
 │   ├── uml-diagram.png
+├── subjects/
 │   ├── requirement.md
 │   ├── submission.md
 │   ├── evaluation.md

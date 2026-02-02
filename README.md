@@ -54,7 +54,7 @@
 ├── docs/
 │   ├── api-specification.md
 │   ├── data-model.md
-│   ├── uml-diagram.png
+│   └── uml-diagram.png
 ├── subjects/
 │   ├── requirement.md
 │   ├── submission.md

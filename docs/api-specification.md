@@ -41,12 +41,6 @@ All endpoints return a unified response envelope:
 
 ## Enums
 
-### UserRole
-| Value | Description |
-|-------|-------------|
-| `USER` | Standard user (default) |
-| `ADMIN` | Administrator |
-
 ### PostStatus
 | Value | Description |
 |-------|-------------|
@@ -70,7 +64,6 @@ Get all users.
       "id": 1,
       "username": "alice_smith",
       "email": "alice@example.com",
-      "role": "USER",
       "createdAt": "2026-03-08T10:00:00.000Z"
     }
   ]
@@ -96,7 +89,6 @@ Get a single user by ID.
     "id": 1,
     "username": "alice_smith",
     "email": "alice@example.com",
-    "role": "USER",
     "createdAt": "2026-03-08T10:00:00.000Z"
   }
 }
@@ -121,13 +113,11 @@ Create a new user.
 |-------|------|----------|-------------|
 | `username` | string | ✅ | Min length: 3, must be unique |
 | `email` | string | ✅ | Valid email format |
-| `role` | `UserRole` | ❌ | Default: `USER` |
 
 ```json
 {
   "username": "alice_smith",
   "email": "alice@example.com",
-  "role": "USER"
 }
 ```
 
@@ -140,7 +130,6 @@ Create a new user.
     "id": 1,
     "username": "alice_smith",
     "email": "alice@example.com",
-    "role": "USER",
     "createdAt": "2026-03-08T10:00:00.000Z"
   }
 }
@@ -170,7 +159,6 @@ Update an existing user. All fields are optional.
 |-------|------|----------|-------------|
 | `username` | string | ❌ | Min length: 3 |
 | `email` | string | ❌ | Valid email format |
-| `role` | `UserRole` | ❌ | `USER` or `ADMIN` |
 
 ```json
 {
@@ -187,7 +175,6 @@ Update an existing user. All fields are optional.
     "id": 1,
     "username": "alice_smith",
     "email": "newemail@example.com",
-    "role": "USER",
     "createdAt": "2026-03-08T10:00:00.000Z"
   }
 }
@@ -214,7 +201,6 @@ Delete a user and cascade-delete all their posts and comments.
     "id": 1,
     "username": "alice_smith",
     "email": "alice@example.com",
-    "role": "USER",
     "createdAt": "2026-03-08T10:00:00.000Z"
   }
 }

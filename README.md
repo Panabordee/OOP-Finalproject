@@ -69,7 +69,9 @@ src/
 (หมายเหตุ: ข้อมูลจะถูกบันทึกอัตโนมัติลงในโฟลเดอร์ data/ ในรูปแบบไฟล์ .json เมื่อมีการทำ CRUD Operations)
 📚 เอกสารอ้างอิงและอัปเดต (Documentation)
 
-สำหรับเอกสารประกอบการออกแบบระบบ สามารถเข้าไปดูรายละเอียดเพิ่มเติมได้ที่โฟลเดอร์ docs:
+    📄 API Specification Document - รายละเอียด Endpoints, Request/Response Format และ HTTP Status Codes
 
 👉 คลิกที่นี่เพื่อไปยังโฟลเดอร์ docs/
+    📂 เปิดโฟลเดอร์เอกสารทั้งหมด (docs/)
 
+    📜 ดูรายละเอียด API Specification

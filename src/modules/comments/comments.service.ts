@@ -35,7 +35,6 @@ export class CommentsService implements OnModuleInit {
       }));
       this.idSeq = parsed.nextId;
     } catch {
-      // File doesn't exist or is invalid, start fresh
       await this.ensureDataDirectory();
       await this.saveData();
     }
@@ -46,7 +45,6 @@ export class CommentsService implements OnModuleInit {
     try {
       await fs.mkdir(dir, { recursive: true });
     } catch {
-      // Directory might already exist
     }
   }
 
@@ -60,7 +58,6 @@ export class CommentsService implements OnModuleInit {
   }
 
   async create(dto: CreateCommentDto): Promise<CommentEntity> {
-    // Validate that the post exists and is published
     let post;
     try {
       post = await this.postsService.findOne(dto.postId);
@@ -68,12 +65,10 @@ export class CommentsService implements OnModuleInit {
       throw new NotFoundException('ไม่พบ Post นี้ในระบบ (Post not found)');
     }
     
-    // Check if post is published
     if (post.status !== PostStatus.PUBLISHED) {
       throw new BadRequestException('ไม่สามารถคอมเมนต์โพสต์ที่ยังไม่เผยแพร่ได้ (Cannot comment on unpublished posts)');
     }
     
-    // Validate that the user exists
     try {
       await this.usersService.findOne(dto.userId);
     } catch {

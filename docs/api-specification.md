@@ -41,6 +41,7 @@ All endpoints return a unified response envelope:
 
 ## Enums
 
+
 ### PostStatus
 | Value | Description |
 |-------|-------------|

@@ -75,3 +75,4 @@ src/
     📂 เปิดโฟลเดอร์เอกสารทั้งหมด (docs/)
 
     📜 ดูรายละเอียด API Specification
+    (./docs/API-Specification.md)

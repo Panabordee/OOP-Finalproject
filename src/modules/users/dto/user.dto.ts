@@ -1,4 +1,4 @@
-import { ApiProperty, PartialType, OmitType } from '@nestjs/swagger';
+import { ApiProperty, PartialType } from '@nestjs/swagger';
 import { IsString, IsEmail, IsNotEmpty, MinLength } from 'class-validator';
 
 export class CreateUserDto {
@@ -14,4 +14,4 @@ export class CreateUserDto {
   email!: string;
 }
 
-export class UpdateUserDto extends PartialType(OmitType(CreateUserDto, ['username', 'email'] as const)) {}
+export class UpdateUserDto extends PartialType(CreateUserDto) {}

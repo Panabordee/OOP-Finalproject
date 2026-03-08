@@ -92,12 +92,27 @@ export class UsersService implements OnModuleInit {
 
   async update(id: number, dto: UpdateUserDto): Promise<UserEntity> {
     const user = await this.findOne(id);
+    
+    // Check if username already exists in another user
+    if (dto.username && dto.username !== user.username) {
+      const existingUser = this.users.find((u) => u.username === dto.username && u.id !== id);
+      if (existingUser) {
+        throw new ConflictException('Username already exists');
+      }
+    }
+    
+    // Check if email already exists in another user
+    if (dto.email && dto.email !== user.email) {
+      const existingEmail = this.users.find((u) => u.email === dto.email && u.id !== id);
+      if (existingEmail) {
+        throw new ConflictException('Email already exists');
+      }
+    }
+    
     const updated = new UserEntity({
       ...user,
       ...dto,
       id: user.id,
-      username: user.username,
-      email: user.email,
       createdAt: user.createdAt,
       updatedAt: new Date(),
     });
